@@ -13,6 +13,7 @@ def start_bot(bot, update):
 I'm just a simple bot and understanf only /start command yet.
 But stay tuned - I'll be updating! I promise! =)
 """.format(update.message.chat.first_name)
+	logging.info('User {} press /start'.format(update.message.chat.username))
 	update.message.reply_text(greeting)
 
 def chat(bot,update):
