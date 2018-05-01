@@ -10,8 +10,7 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
 
 def start_bot(bot, update):
 	greeting = """Welcome {}!
-
-I'm just a simple bot and understanf only /start command yet.
+I'm just a simple bot and understand only /start command yet.
 But stay tuned - I'll be updating! I promise! =)
 """.format(update.message.chat.first_name)
 	logging.info('User {} press /start'.format(update.message.chat.username))
