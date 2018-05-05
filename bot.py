@@ -16,6 +16,25 @@ But stay tuned - I'll be updating! I promise! =)
 	logging.info('User {} press /start'.format(update.message.chat.username))
 	update.message.reply_text(greeting)
 
+# def stop_bot(bot, update):
+# 	logging.info('User {} press /stop. Stopping the bot...'.format(update.message.chat.username))
+# 	update.message.reply_text('Stopping the bot...')
+# 	update.stop()
+
+# def cancel(bot, update):
+#     user = update.message.from_user
+#     logging.info("User %s canceled the conversation.", user.first_name)
+#     update.message.reply_text('Bye! I hope we can talk again some day.',
+#                                reply_markup=ReplyKeyboardRemove())
+
+#     return ConversationHandler.END
+
+# def shutdown():
+#     updater.stop()
+#     updater.is_idle = False
+# def stop_bot(bot, update):
+#     threading.Thread(target=shutdown).start()
+
 def chat(bot, update):
 	text = update.message.text
 	logging.info(text)
@@ -38,6 +57,8 @@ def main():
 	upd = Updater(settings.TELEGRAM_API_KEY)
 	dp = upd.dispatcher
 	dp.add_handler(CommandHandler("start", start_bot))
+	# dp.add_handler(CommandHandler("stop", stop_bot))
+	# dp.add_handler(CommandHandler("stop", cancel))
 	dp.add_handler(CommandHandler("planet", planet, pass_args=True))
 	dp.add_handler(MessageHandler(Filters.text, chat))
 	upd.start_polling()
